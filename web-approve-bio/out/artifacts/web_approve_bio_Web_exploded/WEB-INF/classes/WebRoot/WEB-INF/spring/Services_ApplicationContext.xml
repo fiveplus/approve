@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<bean id="baseService" class="com.approve.services.BaseService">
+		<property name="baseDAO">
+			<ref bean="BaseDAO" />
+		</property>
+	</bean>
+
+	<bean id="SysUserServ" class="com.approve.services.serv.impl.SysUserImpl" parent="baseService" />
+	<bean id="DepartmentServ" class="com.approve.services.serv.impl.DepartmentImpl" parent="baseService" />
+	<bean id="ApproveServ" class="com.approve.services.serv.impl.ApproveImpl" parent="baseService"  />
+	<bean id="ApproveLogServ" class="com.approve.services.serv.impl.ApproveLogImpl" parent="baseService" />
+	<bean id="UserApproveServ" class="com.approve.services.serv.impl.UserApproveImpl" parent="baseService" />
+	<bean id="ArchiveLogServ" class="com.approve.services.serv.impl.ArchiveLogImpl" parent="baseService" />
+	<bean id="UserDeptServ" class="com.approve.services.serv.impl.UserDeptImpl" parent="baseService" />
+	
+	<bean id="SettingServ" class="com.approve.services.serv.impl.SettingImpl" parent="baseService" />
+	
+	<bean id="SysFreeApproveServ" class="com.approve.services.serv.impl.SysFreeApproveImpl" parent="baseService" />
+	<bean id="StaticSettingServ" class="com.approve.services.serv.impl.StaticSettingImpl" parent="baseService" />
+	
+	<bean id="ApproveTypeServ" class="com.approve.services.serv.impl.ApproveTypeImpl" parent="baseService" />
+	
+</beans>

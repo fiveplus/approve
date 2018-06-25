@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	
+	<!-- 数据库配置文件加载 -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="/WEB-INF/sql-config.properties" />
+	</bean>
+	
+	<!-- 数据源配置 -->
+	<bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		
+		<!--maxActive: 最大连接数量-->    
+        <property name="maxActive" value="150"/>  
+        <!--minIdle: 最小空闲连接-->    
+        <property name="minIdle" value="5"/>  
+        <!--maxIdle: 最大空闲连接-->    
+        <property name="maxIdle" value="20"/>  
+        <!--initialSize: 初始化连接-->    
+        <property name="initialSize" value="30"/>  
+        <!-- 连接被泄露时是否打印 -->  
+        <property name="logAbandoned" value="true"/>  
+        <!--removeAbandoned: 是否自动回收超时连接 原来为true-->    
+        <property name="removeAbandoned"  value="true"/>  
+        <!--removeAbandonedTimeout: 超时时间(以秒数为单位)-->    
+        <property name="removeAbandonedTimeout" value="10"/>  
+        <!--maxWait: 超时等待时间以毫秒为单位 1000等于60秒-->  
+        <property name="maxWait" value="1000"/>  
+        <!-- 在空闲连接回收器线程运行期间休眠的时间值,以毫秒为单位. -->  
+        <property name="timeBetweenEvictionRunsMillis" value="10000"/>  
+        <!--  在每次空闲连接回收器线程(如果有)运行时检查的连接数量 -->  
+        <property name="numTestsPerEvictionRun" value="10"/>  
+        <!-- 1000 * 60 * 30  连接在池中保持空闲而不被空闲连接回收器线程-->  
+        <property name="minEvictableIdleTimeMillis" value="10000"/>  
+    	<property name="validationQuery" value="SELECT NOW() FROM DUAL"/>  
+		
+	</bean>
+	
+	<!-- 系统业务实体映射 -->
+	<bean id="systemMappingConfig" class="com.approve.persistence.SysMapping" />
+	<!-- Hibernate SessionFactory -->
+	<bean id="sessionFactory" class="com.approve.persistence.SysSessionFactory">
+		<constructor-arg index="0">
+			<ref bean="systemMappingConfig" />
+		</constructor-arg>
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<!-- 指定JDBC抓取数量的大小 -->
+				<prop key="hibernate.jdbc.fetch_size">30</prop>
+				<!-- 允许Hibernate使用JDBC2的批量更新. 取值 建议取5到30之间的值 -->
+				<prop key="hibernate.jdbc.batch_size">30</prop>
+				<!-- 如果开启, Hibernate将收集有助于性能调节的统计数据. -->
+				<prop key="hibernate.generate_statistics">true</prop>
+				<prop key="hibernate.dialect">
+					${hibernate.dialect}
+				</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<!-- 为Hibernate关联的批量抓取设置默认数量. 取值 建议的取值为4, 8, 和16 -->
+				<prop key="hibernate.default_batch_fetch_size">16</prop>
+				<prop key="hibernate.cache.provider_class">
+					org.hibernate.cache.EhCacheProvider
+				</prop>
+				<!-- hibernate缓存配置 -->
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				
+			</props>
+		</property>
+	</bean>
+	
+	<!-- //***AOP布署开始***\\ -->
+	<!--基于@Transactional-->
+	<tx:annotation-driven order="1" />
+	<!-- //***AOP布署结束***\\ -->
+	
+	<!-- EHCache begin -->
+	<bean id="cacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation">
+			<value>classpath:ehcache.xml</value>
+		</property>
+	</bean>
+	<!-- EHCache end -->
+	
+	<!-- config transaction base on annotation-->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+	    <property name="sessionFactory">
+	       <ref bean="sessionFactory" />
+	    </property>
+	    <property name="cacheQueries">
+	       <value>true</value>
+	    </property>
+	</bean>
+	
+	<!-- DAO数据访问基类-->
+	<bean id="BaseDAO"
+		class="com.approve.services.BaseDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+
+
+</beans>

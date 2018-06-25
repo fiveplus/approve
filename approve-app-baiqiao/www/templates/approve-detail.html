@@ -1,0 +1,34 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="查看">
+  <ion-content class="padding" ng-show="loading">
+      <h2 align="center">{{ua.title}}</h2>
+    <p>
+    {{ua.content}}
+    </p>
+       <h5 align="center">当前进度</h5>
+    <ion-list>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="l in list" type="item-text-wrap" ng-if="l.toUser != null">
+            <img ng-src="img/lightbulb33.png">
+                <h2>{{l.toUser.userName}} － 节点 {{l.stage+1}} </h2>
+                <p ng-if="l.status=='W'">等待审批</p>
+                <p ng-if="l.status=='Y'">通过</p>
+                <p ng-if="l.status=='N'">未通过</p>
+                <p>{{l.content}}</p>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" >
+            <img ng-src="img/businessman45.png">
+            <h2>归档人</h2>
+            <p>{{ua.approve.archivePeople.userName}}</p>
+        </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-content class="padding" style="padding-top:50%;" ng-show="!loading">
+      <ion-spinner icon="spiral" class="spinner-center"></ion-spinner>
+  </ion-content>
+</ion-view>

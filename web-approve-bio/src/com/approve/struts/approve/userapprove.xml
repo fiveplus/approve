@@ -1,0 +1,100 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="userapprove" namespace="/userapprove" extends="admin">
+		<action name="list" class="UserApproveAction" method="list">
+			<result name="success">/user_approve/approves.jsp</result>
+		</action>
+		
+		<action name="list_all" class="UserApproveAction" method="list_all">
+			<result name="success">/user_approve/all_approves.jsp</result>
+		</action>
+		
+		<!-- 作废流程列表 -->
+		<action name="del_list" class="UserApproveAction" method="del_list">
+			<result name="success">/user_approve/del_list.jsp</result>
+		</action>
+		
+		<!-- 作废流程恢复 -->
+		<action name="recover" class="UserApproveAction" method="recover">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="addinit" class="UserApproveAction" method="addinit">
+			<result name="success">/user_approve/add_approve.jsp</result>
+		</action>
+		
+		<action name="add" class="UserApproveAction" method="add">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="user_approves" class="UserApproveAction" method="user_approves">
+			<result name="success">/user_approve/user_approves.jsp</result>
+		</action>
+		
+		<action name="approve_updateInit" class="UserApproveAction" method="approve_updateInit">
+			<result name="success">/user_approve/update_approve.jsp</result>
+			<result name="error">/message.jsp</result>
+		</action>
+		
+		<action name="approve_update" class="UserApproveAction" method="approve_update">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="approve_delete" class="UserApproveAction" method="approve_delete">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="approvelog" class="UserApproveAction" method="approvelog">
+			<result name="success">/user_approve/approvelog.jsp</result>
+		</action>
+		
+		<action name="addfree_init" class="UserApproveAction" method="addfree_init">
+			<result name="success">/user_approve/addfree_approve.jsp</result>
+		</action>
+		
+		<action name="addfree" class="UserApproveAction" method="addfree">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="add_list" class="UserApproveAction" method="add_list">
+			<result name="success">/user_approve/add_list.jsp</result>
+		</action>
+		
+		<action name="printpage" class="UserApproveAction" method="printpage">
+			<result name="success">/user_approve/printpage.jsp</result>
+		</action>
+		
+		<action name="tel.list" class="UserApproveAction" method="tel_list">
+		</action>
+		
+		<action name="tel.user_approves" class="UserApproveAction" method="tel_user_approves">
+		</action>
+		
+		<action name="tel.approvelog" class="UserApproveAction" method="tel_approvelog">
+		</action>
+		
+		<action name="tel.approve_updateInit" class="UserApproveAction" method="tel_approve_updateInit">
+		</action>
+		
+		<action name="tel.approve_update" class="UserApproveAction" method="tel_approve_update">
+		</action>
+		
+		<action name="tel.add_list" class="UserApproveAction" method="tel_add_list">
+		</action>
+		
+		<action name="tel.addinit" class="UserApproveAction" method="tel_addinit">
+		</action>
+		
+		<action name="tel.add" class="UserApproveAction" method="tel_add">
+		</action>
+		
+		<action name="tel.list_all" class="UserApproveAction" method="tel_list_all">
+		</action>
+		
+		
+		
+	</package>
+</struts>

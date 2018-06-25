@@ -1,0 +1,107 @@
+<ion-view view-title="查看">
+    <ion-content class="padding" ng-show="loading">
+        <div ng-if="lo.status=='W'">
+        <div ng-if="lo.stage>0">
+            <h4 align="center">历史节点</h4>
+            <ion-list>
+                <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="l in oldlogs" type="item-text-wrap" ng-if="l.toUser!=null">
+                        <img ng-src="img/lightbulb31.png">
+                        <h2>{{l.toUser.userName}} － 节点 {{l.stage+1}} </h2>
+                        <p ng-if="l.status=='Y'">同意</p>
+                        <p ng-if="l.status=='N'">不同意</p>
+                        <p>{{l.content}}</p>
+                        <i class="icon ion-chevron-right icon-accessory"></i>
+                </ion-item>
+            </ion-list>
+        </div>
+        <h4 align="center">本节点</h4>
+        <form class="list form-padding" id="form">
+        <label class="item">
+            <span>审批标题：</span>
+            <span class="item-text-wrap" >{{lo.ua.title}}</span>
+        </label>
+        <label class="item">
+            <span>流程名称：</span>
+            <span class="item-text-wrap">{{lo.approve.name}}</span>
+        </label>
+        <label class="item">
+            <span>发起人：</span>
+            <span class="item-text-wrap">{{lo.fromUser.userName}}</span>
+        </label>
+        <label class="item">
+            <span>详细内容：</span>
+            <span class="item-text-wrap">{{lo.ua.content}}</span>
+        </label>
+        <label class="item">
+            <span>是否同意：</span>
+            <select name="log.status" ng-model="log.status" ng-options="yn.name as yn.value for yn in yesno">
+                <option value="">请选择</option>
+            </select>
+        </label>
+        <label class="item" align="center">
+            <span>审批意见</span>
+        </label>
+        <label class="item">
+            <textarea class="col-offset-5 textarea item-text-wrap" name="log.content" ng-model="log.content"></textarea>
+        </label>
+        <div style="item item-input">
+            <br>
+            <div class="bar bar-assertive" id="submit-button" ng-click="submit('form')"><h1 class="title">审批确认</h1></div>
+            <br>
+            <br>
+        </div>
+        <form>
+        </div>
+        <div ng-if="lo.status!='W'">
+        <!-- 已审批  -->
+        <div ng-if="lo.stage>0">
+            <h4 align="center">历史节点</h4>
+            <ion-list>
+                <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="l in oldlogs" type="item-text-wrap" ng-if="l.toUser!=null">
+                    <img ng-src="img/lightbulb31.png">
+                        <h2>{{l.toUser.userName}} － 节点 {{l.stage+1}} </h2>
+                        <p ng-if="l.status=='Y'">同意</p>
+                        <p ng-if="l.status=='N'">不同意</p>
+                        <p>{{l.content}}</p>
+                        <i class="icon ion-chevron-right icon-accessory"></i>
+                        </ion-item>
+            </ion-list>
+        </div>
+        <h4 align="center">本节点</h4>
+        <form class="list form-padding">
+            <label class="item" >
+                <span>审批标题：</span>
+                <span class="item-text-wrap">{{lo.ua.title}}</span>
+            </label>
+            <label class="item">
+                <span>流程名称：</span>
+                <span class="item-text-wrap">{{lo.approve.name}}</span>
+            </label>
+            <label class="item">
+                <span>发起人：</span>
+                <span class="item-text-wrap">{{lo.fromUser.userName}}</span>
+            </label>
+            <label class="item">
+                <span>详细内容：</span>
+                <span class="item-text-wrap">{{lo.ua.content}}</span>
+            </label>
+            <label class="item">
+                <span>是否同意：</span>
+                <span class="item-text-wrap" ng-if="lo.status=='Y'">同意</span>
+                <span class="item-text-wrap" ng-if="lo.status=='N'">不同意</span>
+            </label>
+            <label class="item">
+                <span>审批意见：</span>
+                <span class="item-text-wrap">{{lo.content}}</span>
+            </label>
+            <div style="item">
+                <br>
+                <br>
+            </div>
+        <form>
+        </div>
+    </ion-content>
+    <ion-content class="padding" style="padding-top:50%;" ng-show="!loading">
+        <ion-spinner icon="spiral" class="spinner-center"></ion-spinner>
+    </ion-content>
+</ion-view>

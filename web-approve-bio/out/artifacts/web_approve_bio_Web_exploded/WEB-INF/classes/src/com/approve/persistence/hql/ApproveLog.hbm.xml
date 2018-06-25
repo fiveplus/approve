@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<query name="getListToUser">
+		<![CDATA[FROM ApproveLog al WHERE al.toUser.id=:userId ORDER BY al.createTime DESC ]]>
+	</query>
+	<query name="getListToUaidAndStage">
+		<![CDATA[FROM ApproveLog al WHERE al.ua.id=:uaid AND al.stage=:stage AND al.status=:status ]]>
+	</query>
+	<query name="getListByUaid">
+		<![CDATA[FROM ApproveLog al WHERE al.ua.id=:uaid ORDER BY al.stage,al.toUser.post ]]>
+	</query>
+	<query name="getListToUaidAndStageForYorN">
+		<![CDATA[FROM ApproveLog al WHERE al.ua.id=:uaid AND al.stage=:stage  ]]>
+	</query>
+	<query name="getListToUaidForYorN">
+		<![CDATA[FROM ApproveLog al WHERE al.ua.id=:uaid AND al.status!='W' ORDER BY al.createTime ASC ]]>
+	</query>
+	<query name="getListByUaidAndMaxStage">
+		<![CDATA[FROM ApproveLog al WHERE al.stage=(SELECT MAX(alal.stage) FROM ApproveLog alal WHERE alal.ua.id=:uaid) AND al.ua.id=:uaid  ]]>
+	</query>
+</hibernate-mapping>

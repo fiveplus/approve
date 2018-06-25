@@ -1,0 +1,24 @@
+<!--
+ This template loads for the 'tab.friend-detail' state (app.js)
+ 'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+ The FriendsCtrl pulls data from the Friends service (service.js)
+ The Friends service returns an array of friend data
+ -->
+<ion-view view-title="查看">
+    <ion-content class="padding">
+        <h4 align="center">{{approve.name}}</h4>
+        <form class="list" id="form">
+            <label class="item item-input">
+                <span class="input-label">审批标题</span>
+                <input type="text" ng-model="userapprove.title">
+            </label>
+            <label class="item item-input">
+                <p align="center">详细内容</p>
+            </label>
+            <label class="item item-input">
+               <textarea class="col-offset-5 textarea" ng-model="userapprove.content"></textarea>
+            </label>
+        </form>
+        <div class="bar bar-assertive" id="submit-button" ng-click="submit('form')"><h1 class="title">发起审批</h1></div>
+    </ion-content>
+</ion-view>

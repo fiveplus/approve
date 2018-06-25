@@ -1,0 +1,23 @@
+<ion-view view-title="其他流程">
+    <ion-content>
+        <ion-refresher pulling-text="pull to refresh..." on-refresh="loadlist()"></ion-refresher>
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="ua in userapproves" type="item-text-wrap" href="#/tab/allapproves/{{ua.id}}" >
+                <img ng-if="ua.status=='Y'" ng-src="img/lightbulb33.png">
+                <img ng-if="ua.status=='W'" ng-src="img/lightbulb34.png">
+                <img ng-if="ua.status=='N'" ng-src="img/lightbulb35.png">
+                <h2>{{ua.createTime|date:'yyyy-MM-dd HH:mm:ss'}}</h2>
+                <p>{{ua.title}}</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+                            
+                <ion-option-button class="button-assertive" ng-click="remove(ua)">
+                    Delete
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+        <p align="center">
+        <ion-spinner icon="ios-small" ng-if="loading"></ion-spinner>
+        </p>
+        <ion-infinite-scroll ng-if="hasmore" icon="ion-loading-d" on-infinite="loadOldlist()" distance="1%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

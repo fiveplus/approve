@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<bean id="BaseAction" class="com.approve.struts.BaseAction" scope="prototype">
+		<property name="sysUserServ">
+			<ref bean="SysUserServ" />
+		</property>
+		<property name="departmentServ">
+			<ref bean="DepartmentServ" />
+		</property>
+		<property name="approveServ">
+			<ref bean="ApproveServ" />
+		</property>
+		<property name="approveLogServ">
+			<ref bean="ApproveLogServ" />
+		</property>
+		<property name="userApproveServ">
+			<ref bean="UserApproveServ" />
+		</property>
+		<property name="archiveLogServ">
+			<ref bean="ArchiveLogServ" />
+		</property>
+		<property name="userDeptServ">
+			<ref bean="UserDeptServ" />
+		</property>
+		<property name="settingServ">
+			<ref bean="SettingServ" />
+		</property>
+		<property name="sysFreeApproveServ">
+			<ref bean="SysFreeApproveServ" />
+		</property>
+		<property name="staticSettingServ">
+			<ref bean="StaticSettingServ" />
+		</property>
+		<property name="approveTypeServ">
+			<ref bean="ApproveTypeServ" />
+		</property>
+	</bean>
+
+	<bean id="IndexAction" scope="prototype" class="com.approve.struts.system.IndexAction" parent="BaseAction">
+	</bean>
+	
+	<bean id="DepartmentAction" scope="prototype" class="com.approve.struts.dept.DepartmentAction" parent="BaseAction">
+	</bean>
+	
+	<bean id="SysUserAction" scope="prototype" class="com.approve.struts.user.SysUserAction" parent="BaseAction" >
+	</bean>
+	
+	<bean id="ApproveAction" scope="prototype" class="com.approve.struts.approve.ApproveAction" parent="BaseAction"  >
+	</bean>
+	
+	<bean id="UserApproveAction" scope="prototype" class="com.approve.struts.approve.UserApproveAction" parent="BaseAction" >
+	</bean>
+	
+	<bean id="ApproveTypeAction" scope="prototype" class="com.approve.struts.approve.ApproveTypeAction" parent="BaseAction" >
+	</bean>
+
+	<bean id="ArchiveAction" scope="prototype" class="com.approve.struts.archive.ArchiveAction" parent="BaseAction">
+	</bean>
+	
+	<bean id="SettingAction" scope="prototype" class="com.approve.struts.setting.SettingAction" parent="BaseAction">
+	</bean>
+	
+	
+	
+
+</beans>

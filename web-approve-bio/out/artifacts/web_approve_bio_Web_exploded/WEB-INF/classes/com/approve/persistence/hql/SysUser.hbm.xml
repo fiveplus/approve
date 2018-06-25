@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<query name="getSysUserByLoginNameAndPassword">
+		<![CDATA[FROM SysUser u WHERE u.loginName=:loginName AND u.password=:password]]>
+	</query>
+	<query name="getSysUserByDeptId">
+		<![CDATA[FROM SysUser u WHERE u.dept.id=:deptId AND u.isAdmin='N' AND u.status='Y' ]]>
+	</query>
+	<query name="getSysUserByPost">
+		<![CDATA[FROM SysUser u WHERE u.post=:post AND u.isAdmin='N' AND u.status='Y' ]]>
+	</query>
+	<query name="getSysUserByPostAndDeptId">
+		<![CDATA[FROM SysUser u WHERE u.post=:post AND u.dept.id=:deptId AND u.isAdmin='N' AND u.status='Y' ]]>
+	</query>
+	<query name="getSysUserByLoginName">
+		<![CDATA[FROM SysUser u WHERE u.loginName=:loginName ]]>
+	</query>
+</hibernate-mapping>
+
+
+

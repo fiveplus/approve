@@ -1,0 +1,24 @@
+<ion-view view-title="查看">
+    <ion-content class="padding">
+        <h2 align="center">{{al.ua.title}}</h2>
+        <p>
+        {{al.ua.content}}
+        </p>
+        <h5 align="center">归档信息</h5>
+        <form class="list form-padding">
+            <label class="item">
+                <span>归档人：</span>
+                <span class="item-text-wrap">{{al.user.userName}}</span>
+            </label>
+            <label class="item">
+                <span>是否处理：</span>
+                <span class="item-text-wrap" ng-if="al.status=='Y'">已处理</span>
+                <span class="item-text-wrap" ng-if="al.status=='N'">未处理</span>
+            </label>
+            <label class="item">
+                <span>备注：</span>
+                <span class="item-text-wrap">{{al.content}}</span>
+            </label>
+        </form>
+    </ion-content>
+</ion-view>

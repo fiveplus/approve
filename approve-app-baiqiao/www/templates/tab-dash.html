@@ -1,0 +1,47 @@
+<ion-view>
+  <ion-nav-title>
+    <div class="item-input-inset" style="padding:5px;">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="search" placeholder="Search"  ng-model="searchContent" />
+        </label>
+        <button class="button button-clear" ng-click="search(searchContent)">搜索</button>
+    </div>
+  </ion-nav-title>
+  <ion-content class="padding">
+    <h2>您好，{{user.userName}}</h2>
+    <p>
+    <font color="red"><b>当前等待审批数量：{{wcount}}</b></font>
+    </p>
+    <p>
+        下面是已经创建的流程列表，单击选择发起审批流程。
+    </p>
+    
+    <!--
+    <p>
+    当前流程数量：{{acount}}
+    -->
+     </p>
+    <ion-refresher pulling-text="pull to refresh..." on-refresh="loadlist()"></ion-refresher>
+    <ion-list>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="ap in approves" type="item-text-wrap" href="#/tab/approvepushs/{{ap.id}}">
+            <img ng-src="img/lightbulb32.png">
+                <h2>{{ap.name}}</h2>
+                <p ng-if="ap.approveType=='0'">流程审批1型</p>
+                <p ng-if="ap.approveType=='1'">流程审批2型</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+                
+                <ion-option-button class="button-assertive" ng-click="remove(ap)">
+                    Delete
+                </ion-option-button>
+        </ion-item>
+    </ion-list>
+    <p align="center">
+        <ion-spinner icon="ios-small" ng-if="loading"></ion-spinner>
+    </p>
+    <ion-infinite-scroll ng-if="hasmore" icon="ion-loading-d" on-infinite="loadOldlist()" distance="5%"></ion-infinite-scroll>
+    
+
+    
+  </ion-content>
+</ion-view>

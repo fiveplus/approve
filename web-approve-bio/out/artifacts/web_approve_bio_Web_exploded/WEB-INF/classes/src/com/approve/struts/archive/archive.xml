@@ -1,0 +1,43 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="archive" namespace="/archive" extends="admin">
+		<action name="list" class="ArchiveAction" method="list">
+			<result name="success">/archive/archives.jsp</result>
+		</action>
+		
+		<action name="archive" class="ArchiveAction" method="archive">
+			<result name="success">/archive/archive.jsp</result>
+		</action>
+		
+		<action name="update" class="ArchiveAction" method="update">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="list_admin" class="ArchiveAction" method="list_admin">
+			<result name="success">/archive/admin_archives.jsp</result>
+		</action>
+
+		<action name="del_list" class="ArchiveAction" method="del_list">
+			<result name="success">/archive/del_archives.jsp</result>
+		</action>
+
+		<action name="delete" class="ArchiveAction" method="delete">
+		</action>
+		
+		<action name="recover" class="ArchiveAction" method="recover">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="tel.all_archives" class="ArchiveAction" method="tel_all_archives">
+		</action>
+		
+		<action name="tel.archive" class="ArchiveAction" method="tel_archive">
+		</action>
+		
+		
+		
+	</package>
+</struts>

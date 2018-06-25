@@ -1,0 +1,33 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="approvetype" namespace="/approvetype" extends="admin">
+		<action name="list" class="ApproveTypeAction" method="list">
+			<result name="success">/approve_type/approvetypes.jsp</result>
+		</action>
+		
+		<action name="addinit" class="ApproveTypeAction" method="addinit">
+			<result name="success">/approve_type/add_approvetype.jsp</result>
+		</action>
+		
+		<action name="add" class="ApproveTypeAction" method="add">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="updateInit" class="ApproveTypeAction" method="updateInit" >
+			<result name="success" >/approve_type/update_approvetype.jsp</result>
+		</action>
+		
+		<action name="update" class="ApproveTypeAction" method="update">
+			<result name="success">/message.jsp</result>
+		</action>
+
+		<action name="delete" class="ApproveTypeAction" method="delete">
+		</action>
+		
+		
+		
+	</package>
+</struts>

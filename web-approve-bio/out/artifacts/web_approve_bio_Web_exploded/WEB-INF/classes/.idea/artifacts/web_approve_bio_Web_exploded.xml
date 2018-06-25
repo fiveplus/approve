@@ -1,0 +1,94 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="web-approve-bio:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/web_approve_bio_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="web-approve-bio/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="web-approve-bio" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="JNative.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="activation.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="ant-junit.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="ant-launcher.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="ant-trax.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="ant.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="antlr-2.7.6.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="aspectjrt.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="aspectjweaver.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="avalon-logkit-2.1.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="cglib-nodep-2.1_3.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="comet4j-tomcat7.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-beanutils-1.6.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-chain-1.1.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-codec-1.3.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-collections-3.1.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-dbcp.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-digester-1.8.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-email-1.3.3.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-fileupload-1.2.1.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-io-1.2.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-lang-2.1.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-logging-1.0.4.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-logging-api-1.1.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-pool.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="commons-validator-1.3.0.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="dom4j-1.6.1.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="ehcache-1.2.3.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="ejb3-persistence.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="eye-u010.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="ezmorph-1.0.6.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="freemarker-2.3.8.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="hibernate-annotations.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="hibernate-cglib-repack-2.1_3.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="hibernate-commons-annotations.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="hibernate3.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="imixs-workflow-core-3.0.0-SNAPSHOT.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="imixs-workflow-engine-3.0.0-SNAPSHOT.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="imixs-workflow-faces-3.0.0-SNAPSHOT.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="imixs-workflow-jax-rs-3.0.0-SNAPSHOT.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="jackson-core-asl-1.9.8.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="jackson-mapper-asl-1.9.8.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="javassist-3.4.GA.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="jdom-1.0.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="json-lib-2.4-jdk15.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="jsonplugin-0.32.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="jstl.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="jta.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="junit-4.4.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="jxl.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="log4j-1.2.12.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="mail.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="mysql-connector-java-3.0.10-stable-bin.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="nekohtml.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="ognl-2.6.11.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="oro-2.0.8.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="poi-ooxml-3.8-20120326.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="poi-ooxml-schemas-3.9.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="quartz-all-1.6.0.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="readmw.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="resolver.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="serializer.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="slf4j-api-1.4.2.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="slf4j-api-1.5.0.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="slf4j-log4j12-1.5.0.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="spring.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="standard.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="struts2-core-2.0.11.2.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="struts2-spring-plugin-2.0.11.2.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="struts2-tiles-plugin-2.0.11.2.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="tiles-api-2.0.4.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="tiles-core-2.0.4.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="tiles-jsp-2.0.4.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="velocity-1.5.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="werken-xpath-0.9.4.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="xbean.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="xercesImpl.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="xwork-2.0.5.jar" module-name="web-approve-bio" />
+          <element id="library" level="module" name="spring-security-core-4.0.0.CI-SNAPSHOT.jar" module-name="web-approve-bio" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

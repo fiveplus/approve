@@ -1,0 +1,28 @@
+<ion-view view-title="我的审批">
+    <ion-content ng-show="iloading">
+        <ion-refresher pulling-text="pull to refresh..." on-refresh="loadlist()"></ion-refresher>
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="log in logs" type="item-text-wrap" href="#/tab/approves2/{{log.id}}">
+                <img ng-if="log.status=='Y'" ng-src="img/yes.png">
+                <img ng-if="log.status=='N'" ng-src="img/no.png">
+                <img ng-if="log.status=='W'" ng-src="img/wait.png">
+                    
+                    <h2>{{log.createTime|date:'yyyy-MM-dd HH:mm:ss'}} -
+                    
+                    <span ng-if="log.status=='W'" class="no-color">未提交</span>
+                    <span ng-if="log.status!='W'" class="yes-color">已提交</span>
+                    
+                    </h2>
+                    <p>{{log.ua.title}}</p>
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+                    
+                    <ion-option-button class="button-assertive" ng-click="remove(log)">
+                        Delete
+                    </ion-option-button>
+                    </ion-item>
+        </ion-list>
+    </ion-content>
+    <ion-content class="padding" style="padding-top:50%;" ng-show="!iloading">
+        <ion-spinner icon="spiral" class="spinner-center"></ion-spinner>
+    </ion-content>
+</ion-view>

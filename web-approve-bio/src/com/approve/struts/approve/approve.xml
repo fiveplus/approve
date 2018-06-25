@@ -1,0 +1,43 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="approve" namespace="/approve" extends="admin">
+		<action name="list" class="ApproveAction" method="list">
+			<result name="success">/approve/approves.jsp</result>
+		</action>
+		
+		<action name="addinit" class="ApproveAction" method="addinit">
+			<result name="success">/approve/add_approve.jsp</result>
+		</action>
+		
+		<action name="add" class="ApproveAction" method="add">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="updateInit" class="ApproveAction" method="updateInit" >
+			<result name="success" >/approve/update_approve.jsp</result>
+		</action>
+		
+		<action name="update" class="ApproveAction" method="update">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="users" class="ApproveAction" method="users">
+		</action>
+		
+		<action name="double_select" class="ApproveAction" method="double_select">
+		</action>
+		
+		<action name="select" class="ApproveAction" method="select">
+			<result name="success">/approve/approve.jsp</result>
+		</action>
+		
+		<action name="delete" class="ApproveAction" method="delete">
+		</action>
+		
+		
+		
+	</package>
+</struts>

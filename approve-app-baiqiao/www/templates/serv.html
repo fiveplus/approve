@@ -1,0 +1,23 @@
+<ion-view title="服务器设置">
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">IP地址</span>
+                <input type="text" ng-model="serv.ip" />
+                    </label>
+            <label class="item item-input">
+                <span class="input-label">端口</span>
+                <input type="text" ng-model="serv.port"  />
+            </label>
+            <label class="item item-input">
+                <span class="input-label">项目地址</span>
+                <input type="text" ng-model="serv.address" ng-init="serv.address='/'"  />
+            </label>
+        </div>
+        <div class="padding">
+            <button class="button button-block button-positive" ng-click="saveLocal(serv)">
+                完成设置
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

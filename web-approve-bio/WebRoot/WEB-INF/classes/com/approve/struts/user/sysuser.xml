@@ -1,0 +1,48 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="user" namespace="/user" extends="admin">
+		<action name="list" class="SysUserAction" method="list">
+			<result name="success">/user/users.jsp</result>
+		</action>
+		<action name="addinit" class="SysUserAction" method="addinit">
+			<result name="success">/user/add_user.jsp</result>
+		</action>
+		
+		<action name="add" class="SysUserAction" method="add">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="updateInit" class="SysUserAction" method="updateInit">
+			<result name="success">/user/update_user.jsp</result>
+		</action>
+		
+		<action name="update" class="SysUserAction" method="update">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="update_this_init" class="SysUserAction" method="update_this_init">
+			<result name="success">/user/update_this_user.jsp</result>
+		</action>
+		
+		<action name="update_user" class="SysUserAction" method="update_user">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="delete" class="SysUserAction" method="delete">
+		</action>
+		
+		<action name="user_dept_init" class="SysUserAction" method="user_dept_init">
+			<result name="success">/user/user_dept.jsp</result>
+		</action>
+		
+		<action name="user_dept" class="SysUserAction" method="user_dept">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+
+		
+	</package>
+</struts>

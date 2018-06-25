@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="web-approve2"
+  id="myeclipse.1453087928999"
+  context-root="/web-approve2"
+  j2ee-spec="5.0"
+  archive="web-approve2.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

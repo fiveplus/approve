@@ -1,0 +1,30 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="dept" namespace="/dept" extends="admin">
+		<action name="list" class="DepartmentAction" method="list">
+			<result name="success">/dept/depts.jsp</result>
+		</action>
+		<action name="addinit" class="DepartmentAction" method="addinit">
+			<result name="success">/dept/add_dept.jsp</result>
+		</action>
+		
+		<action name="add" class="DepartmentAction" method="add">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="updateInit" class="DepartmentAction" method="updateInit">
+			<result name="success" >/dept/update_dept.jsp</result>
+		</action>
+		
+		<action name="update" class="DepartmentAction" method="update">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="delete" class="DepartmentAction" method="delete">
+		</action>
+		
+	</package>
+</struts>       
+ 

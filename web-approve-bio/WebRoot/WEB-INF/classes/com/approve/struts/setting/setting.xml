@@ -1,0 +1,33 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="setting" namespace="/setting" extends="admin">
+	
+		<action name="backInit" class="SettingAction" method="backInit">
+			<result name="success">/setting/back.jsp</result>
+		</action>
+		
+		<action name="upload" class="SettingAction" method="upload">
+		</action>
+	
+		<action name="titleInit" class="SettingAction" method="titleInit">
+			<result name="success">/setting/title.jsp</result>
+		</action>
+		
+		<action name="title" class="SettingAction" method="title">
+			<result name="success">/message.jsp</result>
+		</action>
+		
+		<action name="freeApproveInit" class="SettingAction" method="freeApproveInit">
+			<result name="success">/setting/free_approve.jsp</result>
+		</action>
+		
+		<action name="freeApprove" class="SettingAction" method="freeApprove">
+			<result name="success">/message.jsp</result>
+		</action>
+	
+		
+	</package>
+</struts>       
+ 

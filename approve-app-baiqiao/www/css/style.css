@@ -1,0 +1,20 @@
+/* Empty. Add your own CSS if you like */
+.textarea{
+    width:100%;
+    resize:none;
+    height:150px;
+}
+.yes-color{
+    color:#666;
+}
+.no-color{
+    color:red;
+}
+.form-padding{
+    padding-bottom:10px;
+}
+.spinner-center{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
